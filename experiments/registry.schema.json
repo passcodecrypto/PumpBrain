@@ -1,0 +1,584 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "registry_version",
+    "project",
+    "as_of",
+    "timezone",
+    "recommended_github_path",
+    "scope",
+    "evidence_policy",
+    "sources",
+    "shared_context",
+    "change_control",
+    "experiments"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "registry_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "project": {
+      "const": "PumpBrain"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date"
+    },
+    "timezone": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recommended_github_path": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "required": [
+        "ids",
+        "experiment_012"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ids": {
+          "const": [
+            "001",
+            "002",
+            "003",
+            "004",
+            "005",
+            "006",
+            "007",
+            "008",
+            "009",
+            "010",
+            "011"
+          ]
+        },
+        "experiment_012": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "evidence_policy": {
+      "type": "object",
+      "required": [
+        "unknown_representation",
+        "prior_assistant_specs",
+        "recommendations",
+        "repository_state",
+        "inspection_limits"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "unknown_representation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "prior_assistant_specs": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recommendations": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repository_state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "inspection_limits": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "type",
+          "description"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^E[0-9]+$"
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "timestamps": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        }
+      }
+    },
+    "shared_context": {
+      "type": "object",
+      "required": [
+        "proposed_project_sources",
+        "per_experiment_mapping",
+        "callout_provider"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "proposed_project_sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "per_experiment_mapping": {
+          "type": "string",
+          "minLength": 1
+        },
+        "callout_provider": {
+          "type": "object",
+          "required": [
+            "last_documented_status",
+            "current_connection"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "last_documented_status": {
+              "type": "string",
+              "minLength": 1
+            },
+            "current_connection": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "change_control": {
+      "type": "object",
+      "required": [
+        "recommended",
+        "initial_changelog"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "recommended": {
+          "type": "string",
+          "minLength": 1
+        },
+        "initial_changelog": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "version",
+              "date",
+              "change"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "date": {
+                "type": "string",
+                "minLength": 1
+              },
+              "change": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "experiments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "name_evidence",
+          "purpose",
+          "current_status",
+          "inputs",
+          "external_dependencies",
+          "secret_variable_names",
+          "safety_guardrails",
+          "activation_criteria",
+          "test_criteria",
+          "ui_route",
+          "evidence_refs"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "enum": [
+              "001",
+              "002",
+              "003",
+              "004",
+              "005",
+              "006",
+              "007",
+              "008",
+              "009",
+              "010",
+              "011"
+            ]
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name_evidence": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "object",
+            "required": [
+              "value",
+              "evidence",
+              "implementation_verified"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "value": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence": {
+                "type": "string",
+                "minLength": 1
+              },
+              "implementation_verified": {
+                "type": "boolean"
+              }
+            }
+          },
+          "current_status": {
+            "type": "object",
+            "required": [
+              "specification",
+              "implementation",
+              "activation",
+              "runtime_health",
+              "tests",
+              "note"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "specification": {
+                "enum": [
+                  "prior_context_specified",
+                  "documented",
+                  "unknown"
+                ]
+              },
+              "implementation": {
+                "enum": [
+                  "unknown",
+                  "not_started",
+                  "in_progress",
+                  "implemented",
+                  "verified"
+                ]
+              },
+              "activation": {
+                "enum": [
+                  "unknown",
+                  "disabled",
+                  "ready",
+                  "active",
+                  "paused",
+                  "blocked"
+                ]
+              },
+              "runtime_health": {
+                "enum": [
+                  "unknown",
+                  "healthy",
+                  "degraded",
+                  "unavailable"
+                ]
+              },
+              "tests": {
+                "enum": [
+                  "unknown",
+                  "not_run",
+                  "passed",
+                  "failed"
+                ]
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "inputs": {
+            "type": "object",
+            "required": [
+              "verified",
+              "context_referenced",
+              "unknown"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "verified": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "context_referenced": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "unknown": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "external_dependencies": {
+            "type": "object",
+            "required": [
+              "context_referenced",
+              "conditional",
+              "unknown"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "context_referenced": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "conditional": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "unknown": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "secret_variable_names": {
+            "type": "object",
+            "required": [
+              "context_referenced",
+              "completeness",
+              "note"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "context_referenced": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "pattern": "^[A-Z][A-Z0-9_]*$"
+                }
+              },
+              "completeness": {
+                "enum": [
+                  "unknown",
+                  "partial",
+                  "verified"
+                ]
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "safety_guardrails": {
+            "type": "object",
+            "required": [
+              "context_required",
+              "recommended",
+              "implementation"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "context_required": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "recommended": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "implementation": {
+                "enum": [
+                  "unknown",
+                  "partial",
+                  "implemented",
+                  "verified"
+                ]
+              }
+            }
+          },
+          "activation_criteria": {
+            "type": "object",
+            "required": [
+              "kind",
+              "items",
+              "met"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "enum": [
+                  "recommended_not_verified",
+                  "documented"
+                ]
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "met": {
+                "enum": [
+                  "unknown",
+                  "yes",
+                  "no",
+                  "partial"
+                ]
+              }
+            }
+          },
+          "test_criteria": {
+            "type": "object",
+            "required": [
+              "kind",
+              "items",
+              "results"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "enum": [
+                  "recommended_not_verified",
+                  "documented"
+                ]
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "results": {
+                "enum": [
+                  "unknown",
+                  "not_run",
+                  "passed",
+                  "failed"
+                ]
+              }
+            }
+          },
+          "ui_route": {
+            "type": "object",
+            "required": [
+              "actual",
+              "status",
+              "recommended",
+              "note"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "actual": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^/"
+              },
+              "status": {
+                "enum": [
+                  "unknown",
+                  "proposed",
+                  "implemented",
+                  "verified"
+                ]
+              },
+              "recommended": {
+                "type": "string",
+                "pattern": "^/experiments/\\d{3}$"
+              },
+              "note": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      },
+      "minItems": 11,
+      "maxItems": 11
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PumpBrain experiment registry schema v1.0.0"
+}
