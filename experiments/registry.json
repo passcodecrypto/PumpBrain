@@ -1,0 +1,1040 @@
+{
+  "schema_version": "1.0.0",
+  "registry_version": "0.1.0",
+  "project": "PumpBrain",
+  "as_of": "2026-10-04",
+  "timezone": "America/New_York",
+  "recommended_github_path": "experiments/registry.json",
+  "scope": {
+    "ids": [
+      "001",
+      "002",
+      "003",
+      "004",
+      "005",
+      "006",
+      "007",
+      "008",
+      "009",
+      "010",
+      "011"
+    ],
+    "experiment_012": "excluded; callouts belong within existing experiments"
+  },
+  "evidence_policy": {
+    "unknown_representation": "null for unknown scalar paths; explicit unknown labels elsewhere. Empty verified lists mean no recovered verification, not absence.",
+    "prior_assistant_specs": "Design evidence only, not implementation or user approval.",
+    "recommendations": "Activation, tests, extra guardrails and proposed routes are recommendations, not claims about deployed behavior.",
+    "repository_state": "User-reported October 4 search found no installed PumpBrain/brain repository; not independently rechecked.",
+    "inspection_limits": "No PumpBrain source code, deployment, secret store, live wallet or test results inspected."
+  },
+  "sources": [
+    {
+      "id": "E1",
+      "type": "user_conversation_context",
+      "description": "Recent user work references Experiment 011 LIVE BRAIN, dedicated page, scrolling issue, activation, Helius setup and callout sourcing."
+    },
+    {
+      "id": "E2",
+      "type": "retrieved_prior_assistant_specification",
+      "timestamp": "2026-10-04T02:01:51Z",
+      "description": "Names and purposes of experiments 001-011; dedicated routes, live/simulation labels, WHY, replay, logs, versioning and no future-data leakage."
+    },
+    {
+      "id": "E3",
+      "type": "retrieved_prior_assistant_specification",
+      "timestamps": [
+        "2026-10-04T02:36:59Z",
+        "2026-10-04T02:37:33Z"
+      ],
+      "description": "Secret variable names; no 012; legitimate callout-provider requirement and unavailable state; simulation restricted to Lab/Test/Demo."
+    }
+  ],
+  "shared_context": {
+    "proposed_project_sources": [
+      "Pump.fun callouts",
+      "Dexscreener",
+      "OpenAI",
+      "GitHub resources"
+    ],
+    "per_experiment_mapping": "unknown; proposed sources are not verified integrations",
+    "callout_provider": {
+      "last_documented_status": "unavailable",
+      "current_connection": "unknown"
+    }
+  },
+  "change_control": {
+    "recommended": "Commit this registry as the canonical specification when repository exists. Keep IDs stable; bump registry_version for each change and schema_version for schema changes. Record commit/run evidence before changing implementation, activation or test status from unknown. Never commit secret values.",
+    "initial_changelog": [
+      {
+        "version": "0.1.0",
+        "date": "2026-10-04",
+        "change": "Initial context-derived specification with explicit unknown implementation state."
+      }
+    ]
+  },
+  "experiments": [
+    {
+      "id": "001",
+      "name": "Convergence Chamber",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Study independent signal convergence and persistence.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify independence, timestamp ordering and reproducible persistence calculations.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/001",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "002",
+      "name": "Narrative Garden",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Study forming narratives.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify timestamped narrative grouping and distinguish observed text from model interpretation.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/002",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "003",
+      "name": "Signal DNA",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Study recurring signal structures.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify reproducible structures and reject future-data leakage.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/003",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "004",
+      "name": "Brain vs Random",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Compare structured signals with randomized persistence.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify seeded random baseline, matched data windows and frozen comparison rules.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/004",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "005",
+      "name": "Shadow Brain",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Record frozen hypothetical decisions.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify immutable hypothetical decisions and no transaction signing.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/005",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "006",
+      "name": "Paper Brain",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Evaluate decisions using simulated SOL.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify simulated balances, fills and fee assumptions; prove no real transactions.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/006",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "007",
+      "name": "Strategy Arena",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Compare frozen strategies.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify immutable strategy versions and equal evaluation windows.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/007",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "008",
+      "name": "Memory Chamber",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Study historical pattern recognition.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify historical cutoff and exclude future observations from recognition.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/008",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "009",
+      "name": "Signal Decay",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Measure signal duration.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify elapsed-time calculations and missing-data handling.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/009",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "010",
+      "name": "The Hive",
+      "name_evidence": "E2",
+      "purpose": {
+        "value": "Study collective activity.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Prior assistant specification; no code or runtime evidence inspected."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Experiment-specific providers, model services and storage"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [],
+        "completeness": "unknown",
+        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Read-only or simulated execution until experiment mode is verified."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Keep any simulated run isolated from transaction signing."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify event deduplication and distinguish correlated activity from independent actors.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/010",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3"
+      ]
+    },
+    {
+      "id": "011",
+      "name": "Live Brain",
+      "name_evidence": "E1/E2",
+      "purpose": {
+        "value": "Execute policy-constrained autonomous Solana trades.",
+        "evidence": "E2",
+        "implementation_verified": false
+      },
+      "current_status": {
+        "specification": "prior_context_specified",
+        "implementation": "unknown",
+        "activation": "unknown",
+        "runtime_health": "unknown",
+        "tests": "unknown",
+        "note": "Setup and dedicated-page work referenced by user; completion and trading activity unverified."
+      },
+      "inputs": {
+        "verified": [],
+        "context_referenced": [
+          "Solana market signals",
+          "Pump.fun callout signals (conditional on legitimate provider)"
+        ],
+        "unknown": [
+          "Exact input schema",
+          "Configured adapters",
+          "Sampling and freshness thresholds",
+          "Experiment-specific parameters"
+        ]
+      },
+      "external_dependencies": {
+        "context_referenced": [
+          "Helius / Solana RPC; configuration and health unverified"
+        ],
+        "conditional": [
+          "Legitimate Pump.fun callout provider; last documented state unavailable"
+        ],
+        "unknown": [
+          "Execution venue and transaction adapter"
+        ]
+      },
+      "secret_variable_names": {
+        "context_referenced": [
+          "SOLANA_RPC_URL",
+          "LIVE_BRAIN_WALLET_KEY",
+          "LIVE_BRAIN_STOP_PASSPHRASE"
+        ],
+        "completeness": "unknown",
+        "note": "Names from prior specification; presence, exact implementation bindings and validity unverified. RPC URL may contain credentials."
+      },
+      "safety_guardrails": {
+        "context_required": [
+          "No future-data leakage.",
+          "Callout provider unavailable until legitimately connected.",
+          "Simulated callouts only in Lab/Test/Demo."
+        ],
+        "recommended": [
+          "Never expose secret values in registry, UI or logs.",
+          "Record source timestamps, provenance, run IDs and configuration versions.",
+          "No future-data leakage; isolate simulated signals from production decisions.",
+          "Show unavailable or stale data explicitly; never substitute fabricated live data.",
+          "Default disabled; require explicit operator activation after validation.",
+          "Enforce server-side position, exposure, loss and slippage limits; numeric settings unknown.",
+          "Use server-side signing and authenticated emergency stop.",
+          "Reject stale or invalid inputs and duplicate orders; fail closed on critical dependency failure.",
+          "Callouts alone must not trigger purchases; require frozen selection policy."
+        ],
+        "implementation": "unknown"
+      },
+      "activation_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Resolve implementation, input schema, actual route and required dependencies.",
+          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
+          "Pass experiment test criteria; record evidence.",
+          "Verify RPC connectivity, wallet binding, signing isolation, execution adapter and authenticated stop.",
+          "Freeze selection and risk policy with explicit numeric limits; pass dry-run and operator activation gate.",
+          "If strategy requires callouts, block activation while provider is unavailable."
+        ],
+        "met": "unknown"
+      },
+      "test_criteria": {
+        "kind": "recommended_not_verified",
+        "items": [
+          "Verify rejection paths, bounded orders, authenticated stop, RPC failure, duplicate submission prevention and transaction reconciliation in dry-run before any live activation.",
+          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+        ],
+        "results": "unknown"
+      },
+      "ui_route": {
+        "actual": null,
+        "status": "unknown",
+        "recommended": "/experiments/011",
+        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+      },
+      "evidence_refs": [
+        "E2",
+        "E3",
+        "E1"
+      ]
+    }
+  ]
+}
