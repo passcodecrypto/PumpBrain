@@ -1,0 +1,18 @@
+# Local credentials and signing material
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+wallet-keypair*.json
+id.json
+secrets/
+
+# Local environments and generated files
+.venv/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+coverage/
+.DS_Store
