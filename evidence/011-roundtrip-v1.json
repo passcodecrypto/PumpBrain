@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "experiment": "011",
+  "recorded_at": "2026-10-04T16:40:00Z",
+  "policy_label": "CONTROLLED_LIVE_TEST-v1",
+  "test": "UNSIGNED_CHAINED_ROUND_TRIP",
+  "network": "mainnet-beta",
+  "simulation_backend": "simulateBundle (Jito-style) on the private mainnet RPC; capability probed at runtime, unavailable otherwise",
+  "size_sol": 0.05,
+  "mint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+  "token_identity": "Bonk, verified per Jupiter token list; displayed as ponk in app token data. Not a trade recommendation.",
+  "buy": { "simulation": "PASS", "sol_change": -0.051494, "token_change": "158757225204", "route": "Whirlpool", "programs_allowlisted": true },
+  "sell": { "chained_state": "CARRIED (started from simulated BUY balance)", "simulation": "PASS", "sol_change": 0.049157, "token_change": "-158757225204", "route": "Scorch → Byreal → HumidiFi", "programs_allowlisted": true },
+  "round_trip_net_sol": -0.002336747,
+  "execution_gate": "BLOCKED: KILL SWITCH (system halted). liveEnabled=false.",
+  "signed": false,
+  "broadcast": false,
+  "positions_created": 0,
+  "target": { "startingSol": 1, "targetSol": 100, "maxDays": 30, "classification": "aspirational", "profitability_validated": false },
+  "remaining": [
+    "Final live activation is an operator action; the system is held HALTED and liveEnabled stays false.",
+    "A passed simulation is not permission to execute and is not evidence of profitability."
+  ]
+}

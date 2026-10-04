@@ -1,0 +1,73 @@
+{
+  "schema_version": "1.0.0",
+  "experiment": "011",
+  "policy_label": "CONTROLLED_LIVE_TEST-v1",
+  "recorded_at": "2026-10-04T16:25:23Z",
+  "source": "Operator-approved policy saved through pumpbrain.dev; qualification UI observations",
+  "policy": {
+    "riskCapitalSol": 1,
+    "reserveSol": 0.05,
+    "maxPerTradeSol": 0.25,
+    "maxDeployedSol": 0.5,
+    "maxOpen": 2,
+    "maxDailyExecutions": 10,
+    "maxDailyLossSol": 0.1,
+    "maxSlippagePct": 2,
+    "maxPriceImpactPct": 1,
+    "minLiquidityUsd": 50000,
+    "requireVerifiedLiquidity": true,
+    "tokenCooldownMin": 60,
+    "globalCooldownMin": 5,
+    "txExpirationSec": 20
+  },
+  "execution_state": {
+    "halted": true,
+    "live_enabled": false,
+    "readiness_passed": 13,
+    "readiness_total": 15,
+    "open_positions": 0
+  },
+  "qualification": {
+    "sizeSol": 0.05,
+    "mint": "DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263",
+    "token_identity": "App probe mint; displayed as ponk. Not verified as BONK and not a trade recommendation.",
+    "buy": {
+      "transaction_build": "PASS",
+      "transaction_inspection": "PASS",
+      "program_allowlist": "PASS",
+      "simulation": "PASS",
+      "transaction_effects": "PASS",
+      "final": "BLOCKED",
+      "blockers": [
+        "KILL SWITCH: SYSTEM HALTED"
+      ]
+    },
+    "sell": {
+      "simulated_position": true,
+      "transaction_build": "PASS",
+      "transaction_inspection": "PASS",
+      "program_allowlist": "PASS",
+      "simulation": "FAIL",
+      "transaction_effects": "NOT VERIFIED",
+      "final": "BLOCKED",
+      "blockers": [
+        "KILL SWITCH: SYSTEM HALTED",
+        "Wallet holds no test token; current simulator cannot simulate spending absent assets"
+      ]
+    },
+    "signed": false,
+    "broadcast": false
+  },
+  "target": {
+    "startingSol": 1,
+    "targetSol": 100,
+    "maxDays": 30,
+    "classification": "aspirational",
+    "profitability_validated": false
+  },
+  "remaining": [
+    "BUY readiness requires full qualification with no halt blocker; unsigned simulation already passed.",
+    "SELL qualification requires a valid funded simulation environment or a safely chained BUY/SELL simulator; do not buy assets merely to bypass this check.",
+    "Final live activation is an operator action; do not treat this policy snapshot as activation."
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0.0",
-  "registry_version": "0.1.0",
+  "registry_version": "0.3.0",
   "project": "PumpBrain",
   "as_of": "2026-10-04",
   "timezone": "America/New_York",
@@ -25,8 +25,8 @@
     "unknown_representation": "null for unknown scalar paths; explicit unknown labels elsewhere. Empty verified lists mean no recovered verification, not absence.",
     "prior_assistant_specs": "Design evidence only, not implementation or user approval.",
     "recommendations": "Activation, tests, extra guardrails and proposed routes are recommendations, not claims about deployed behavior.",
-    "repository_state": "User-reported October 4 search found no installed PumpBrain/brain repository; not independently rechecked.",
-    "inspection_limits": "No PumpBrain source code, deployment, secret store, live wallet or test results inspected."
+    "repository_state": "Public registry, methodology and sanitized evidence live at passcodecrypto/PumpBrain. Application source is private and not linked. Last verified 2026-10-04T16:45:00Z.",
+    "inspection_limits": "Source snapshot 49eed1ac68a409a65998402df1e85bdff0e68265 reviewed; tracked .env classified as public project config/publishable keys without exposing values. Engine and application tests passed in run 37213403470 at commit 344e1561843808a11b32878312da4b9234ca7db4. Deployed database, secret store, wallet and live execution not inspected."
   },
   "sources": [
     {
@@ -48,6 +48,22 @@
         "2026-10-04T02:37:33Z"
       ],
       "description": "Secret variable names; no 012; legitimate callout-provider requirement and unavailable state; simulation restricted to Lab/Test/Demo."
+    },
+    {
+      "id": "E4",
+      "type": "github_source_snapshot",
+      "description": "the private application repository (not public) @ 49eed1ac68a409a65998402df1e85bdff0e68265: src/components/experiments/catalog.ts; src/lib/experiments/{engine,feed,derive,selftest}.ts; src/routes/experiments.$id.tsx; src/routes/experiments.live-brain.tsx; src/lib/livebrain/{policy,engine.server,signer.server,qualify.server,readiness.server,execPolicy}.ts."
+    },
+    {
+      "id": "E5",
+      "type": "github_actions_test_run",
+      "description": "private application CI run 37213403470 @ 344e1561843808a11b32878312da4b9234ca7db4: 8 built-in engine checks passed; 5 Vitest tests passed (3 callout, 2 routing). Routing mocks the WebGL boundary and replaces the document shell only in tests; no deployed UI or trade readiness proof."
+    },
+    {
+      "id": "E6",
+      "type": "verification_run",
+      "timestamp": "2026-10-04T16:45:00Z",
+      "description": "Experiment 011 unsigned chained BUY->SELL round trip (0.05 SOL, mainnet-beta, provider bundle simulation): both simulations passed with SELL starting from the simulated BUY balance; execution gate blocked by kill switch; system HALTED; liveEnabled=false; nothing signed or broadcast. 37 application tests passed (incl. 19 gate + 9 round-trip). Evidence: evidence/011-roundtrip-v1.json."
     }
   ],
   "shared_context": {
@@ -57,7 +73,7 @@
       "OpenAI",
       "GitHub resources"
     ],
-    "per_experiment_mapping": "unknown; proposed sources are not verified integrations",
+    "per_experiment_mapping": "Source dependencies recorded below; deployment configuration unknown.",
     "callout_provider": {
       "last_documented_status": "unavailable",
       "current_connection": "unknown"
@@ -70,6 +86,21 @@
         "version": "0.1.0",
         "date": "2026-10-04",
         "change": "Initial context-derived specification with explicit unknown implementation state."
+      },
+      {
+        "version": "0.2.0",
+        "date": "2026-10-04",
+        "change": "Reconciled with Lovable synced source snapshot; slug routes and implementation present; 011 live execution disabled in source; runtime remains unknown."
+      },
+      {
+        "version": "0.2.1",
+        "date": "2026-10-04",
+        "change": "Recorded credential classification and successful engine/application CI evidence; unsupported experiment-specific coverage and runtime remain unknown."
+      },
+      {
+        "version": "0.3.0",
+        "date": "2026-10-04",
+        "change": "Synced to public repo with sanitized evidence; 011 policy configured (CONTROLLED_LIVE_TEST-v1), chained round-trip simulation passed, live execution locked and system HALTED. Last verified 2026-10-04T16:45:00Z."
       }
     ]
   },
@@ -77,43 +108,45 @@
     {
       "id": "001",
       "name": "Convergence Chamber",
-      "name_evidence": "E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Study independent signal convergence and persistence.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "Can multiple independent signals identify activity that persists longer than isolated signals?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "passed",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Built-in fixture check passed in E5; this does not cover every recommended test criterion or deployed behavior."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Convergences from 3+ signal types within 3 minutes and later follow-ups",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -126,17 +159,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -145,61 +177,66 @@
         "items": [
           "Verify independence, timestamp ordering and reproducible persistence calculations.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
         "results": "unknown"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/convergence-chamber",
+        "status": "implemented",
         "recommended": "/experiments/001",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "002",
       "name": "Narrative Garden",
-      "name_evidence": "E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Study forming narratives.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "Can PUMPBRAIN detect narratives while they are being born?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "not_run",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Shared mode/time fixtures passed in E5; no dedicated test coverage for this experiment was established."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Stored discovery narratives and relationship links",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -212,17 +249,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -231,61 +267,66 @@
         "items": [
           "Verify timestamped narrative grouping and distinguish observed text from model interpretation.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
-        "results": "unknown"
+        "results": "not_run"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/narrative-garden",
+        "status": "implemented",
         "recommended": "/experiments/002",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "003",
-      "name": "Signal DNA",
-      "name_evidence": "E2",
+      "name": "Signal Dna Lab",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Study recurring signal structures.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "Do recurring signal sequences share a recognisable shape?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "passed",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Built-in fixture check passed in E5; this does not cover every recommended test criterion or deployed behavior."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Token signal sequences grouped by first four types",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -298,17 +339,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -317,61 +357,66 @@
         "items": [
           "Verify reproducible structures and reject future-data leakage.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
         "results": "unknown"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/signal-dna",
+        "status": "implemented",
         "recommended": "/experiments/003",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "004",
-      "name": "Brain vs Random",
-      "name_evidence": "E2",
+      "name": "Brain Vs Random",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Compare structured signals with randomized persistence.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "Do brain-selected tokens stay active longer than randomly selected ones?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "passed",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Built-in fixture check passed in E5; this does not cover every recommended test criterion or deployed behavior."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Convergence selections and fixed-hash comparison group from same token window",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -384,17 +429,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -403,61 +447,66 @@
         "items": [
           "Verify seeded random baseline, matched data windows and frozen comparison rules.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
         "results": "unknown"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/brain-vs-random",
+        "status": "implemented",
         "recommended": "/experiments/004",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "005",
       "name": "Shadow Brain",
-      "name_evidence": "E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Record frozen hypothetical decisions.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "What would the brain have flagged, and was it right?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "passed",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Built-in fixture check passed in E5; this does not cover every recommended test criterion or deployed behavior."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Convergences and subsequent activity",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -470,17 +519,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -489,61 +537,66 @@
         "items": [
           "Verify immutable hypothetical decisions and no transaction signing.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
         "results": "unknown"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/shadow-brain",
+        "status": "implemented",
         "recommended": "/experiments/005",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "006",
       "name": "Paper Brain",
-      "name_evidence": "E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Evaluate decisions using simulated SOL.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "How would simulated, no-money positions have behaved?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "passed",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Built-in fixture check passed in E5; this does not cover every recommended test criterion or deployed behavior."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Convergences plus first/latest observed market cap; excludes missing market cap",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -556,17 +609,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -575,61 +627,66 @@
         "items": [
           "Verify simulated balances, fills and fee assumptions; prove no real transactions.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
         "results": "unknown"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/paper-brain",
+        "status": "implemented",
         "recommended": "/experiments/006",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "007",
       "name": "Strategy Arena",
-      "name_evidence": "E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Compare frozen strategies.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "Which detection rules hold up when run side by side?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "passed",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Built-in fixture check passed in E5; this does not cover every recommended test criterion or deployed behavior."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Token histories replayed through four detection rules",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -642,17 +699,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -661,61 +717,66 @@
         "items": [
           "Verify immutable strategy versions and equal evaluation windows.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
         "results": "unknown"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/strategy-arena",
+        "status": "implemented",
         "recommended": "/experiments/007",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "008",
       "name": "Memory Chamber",
-      "name_evidence": "E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Study historical pattern recognition.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "Does the past predict how a new pattern unfolds?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "not_run",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Shared mode/time fixtures passed in E5; no dedicated test coverage for this experiment was established."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Discovery thoughts with historical dormant-thought memory matches",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -728,17 +789,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -747,61 +807,66 @@
         "items": [
           "Verify historical cutoff and exclude future observations from recognition.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
-        "results": "unknown"
+        "results": "not_run"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/memory-chamber",
+        "status": "implemented",
         "recommended": "/experiments/008",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "009",
       "name": "Signal Decay",
-      "name_evidence": "E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Measure signal duration.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "How long do different signal types remain meaningful?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "not_run",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Shared mode/time fixtures passed in E5; no dedicated test coverage for this experiment was established."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Per-token/type recurring signal trails and reactivations",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -814,17 +879,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -833,61 +897,66 @@
         "items": [
           "Verify elapsed-time calculations and missing-data handling.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
-        "results": "unknown"
+        "results": "not_run"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/signal-decay",
+        "status": "implemented",
         "recommended": "/experiments/009",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "010",
       "name": "The Hive",
-      "name_evidence": "E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Study collective activity.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "What does the whole market look like as one organism?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
         "activation": "unknown",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Prior assistant specification; no code or runtime evidence inspected."
+        "tests": "not_run",
+        "note": "Source implementation exists; deployed status and database pause state uninspected. Shared mode/time fixtures passed in E5; no dedicated test coverage for this experiment was established."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Tracked tokens, signal counts and discovery narratives",
+          "Shared pb_signals snapshot (last 200) and realtime inserts; discovery streams"
+        ],
         "context_referenced": [],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
-        "context_referenced": [],
+        "context_referenced": [
+          "Supabase database/realtime; existing ingest and discovery pipeline"
+        ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Experiment-specific providers, model services and storage"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
         "context_referenced": [],
         "completeness": "unknown",
-        "note": "No experiment-specific names recovered; empty list does not mean no secrets required."
+        "note": "No direct signer secrets used by experiment engines; shared backend credentials not exhaustively audited."
       },
       "safety_guardrails": {
         "context_required": [
@@ -900,17 +969,16 @@
           "Record source timestamps, provenance, run IDs and configuration versions.",
           "No future-data leakage; isolate simulated signals from production decisions.",
           "Show unavailable or stale data explicitly; never substitute fabricated live data.",
-          "Read-only or simulated execution until experiment mode is verified."
+          "Read-only or simulated execution until experiment mode is verified.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Keep any simulated run isolated from transaction signing."
+          "All runExperimentTests checks pass; pb_experiments row is not paused; live event count and experiment-specific observations exist.",
+          "Paper Brain additionally requires observed market-cap P&L; displays PAPER. Narrative Garden has no simulated narrative observations."
         ],
         "met": "unknown"
       },
@@ -919,60 +987,63 @@
         "items": [
           "Verify event deduplication and distinguish correlated activity from independent actors.",
           "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs.",
+          "Run src/lib/experiments/selftest.ts; current suite covers mode/time separation and 001/003/004/005/006/007. Add independent coverage for 002/008/009/010 and every time-sensitive field."
         ],
-        "results": "unknown"
+        "results": "not_run"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/the-hive",
+        "status": "implemented",
         "recommended": "/experiments/010",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
-        "E3"
+        "E3",
+        "E4",
+        "E5"
       ]
     },
     {
       "id": "011",
       "name": "Live Brain",
-      "name_evidence": "E1/E2",
+      "name_evidence": "E4",
       "purpose": {
-        "value": "Execute policy-constrained autonomous Solana trades.",
-        "evidence": "E2",
-        "implementation_verified": false
+        "value": "Can PUMPBRAIN turn observed signals into reproducible autonomous trading decisions?",
+        "evidence": "E4",
+        "implementation_verified": true
       },
       "current_status": {
-        "specification": "prior_context_specified",
-        "implementation": "unknown",
-        "activation": "unknown",
+        "specification": "documented",
+        "implementation": "implemented",
+        "activation": "disabled",
         "runtime_health": "unknown",
-        "tests": "unknown",
-        "note": "Setup and dedicated-page work referenced by user; completion and trading activity unverified."
+        "tests": "not_run",
+        "note": "POLICY.liveEnabled=false; system HALTED. Active policy CONTROLLED_LIVE_TEST-v1 (operator-approved). 2026-10-04: unsigned chained BUY->SELL round trip (0.05 SOL, mainnet-beta, simulateBundle on private RPC) passed transaction simulation with SELL starting from the simulated BUY balance; execution gate remains blocked by the kill switch. Readiness 15/15 gates with eligibility false while halted. Nothing signed or broadcast. Unit tests: 19 gate + 9 round-trip. Qualification mint DezXAZ8z... identified as Bonk (verified) per Jupiter token list; app display label 'ponk'."
       },
       "inputs": {
-        "verified": [],
+        "verified": [
+          "Observed signals/proposals; wallet/RPC state; policy versions; quotes, unsigned transactions and simulations",
+          "Server ingest lease; lb_* database state"
+        ],
         "context_referenced": [
           "Solana market signals",
           "Pump.fun callout signals (conditional on legitimate provider)"
         ],
         "unknown": [
-          "Exact input schema",
-          "Configured adapters",
-          "Sampling and freshness thresholds",
-          "Experiment-specific parameters"
+          "Deployed data availability and freshness"
         ]
       },
       "external_dependencies": {
         "context_referenced": [
-          "Helius / Solana RPC; configuration and health unverified"
+          "Supabase storage; Solana JSON-RPC; PumpPortal unsigned transaction builder; Jupiter qualification quotes/builds; Dexscreener qualification liquidity lookup"
         ],
         "conditional": [
-          "Legitimate Pump.fun callout provider; last documented state unavailable"
+          "Legitimate callout provider if callout signals are used"
         ],
         "unknown": [
-          "Execution venue and transaction adapter"
+          "Deployed credentials, provider health and scheduler operation"
         ]
       },
       "secret_variable_names": {
@@ -981,8 +1052,8 @@
           "LIVE_BRAIN_WALLET_KEY",
           "LIVE_BRAIN_STOP_PASSPHRASE"
         ],
-        "completeness": "unknown",
-        "note": "Names from prior specification; presence, exact implementation bindings and validity unverified. RPC URL may contain credentials."
+        "completeness": "partial",
+        "note": "Names verified in server code; values and deployed configuration uninspected."
       },
       "safety_guardrails": {
         "context_required": [
@@ -999,41 +1070,41 @@
           "Enforce server-side position, exposure, loss and slippage limits; numeric settings unknown.",
           "Use server-side signing and authenticated emergency stop.",
           "Reject stale or invalid inputs and duplicate orders; fail closed on critical dependency failure.",
-          "Callouts alone must not trigger purchases; require frozen selection policy."
+          "Callouts alone must not trigger purchases; require frozen selection policy.",
+          "Source implements scopeData mode/time filtering; not independently proven for every field and discovery visualization.",
+          "Server-only signer; liveEnabled=false master lock; qualification never signs or broadcasts; transaction program allowlist and simulation; TTLs, exposure/loss limits, halt and idempotency gates."
         ],
-        "implementation": "unknown"
+        "implementation": "partial"
       },
       "activation_criteria": {
-        "kind": "recommended_not_verified",
+        "kind": "documented",
         "items": [
-          "Resolve implementation, input schema, actual route and required dependencies.",
-          "Validate provenance, freshness, mode labels, replay, logs and configuration version.",
-          "Pass experiment test criteria; record evidence.",
-          "Verify RPC connectivity, wallet binding, signing isolation, execution adapter and authenticated stop.",
-          "Freeze selection and risk policy with explicit numeric limits; pass dry-run and operator activation gate.",
-          "If strategy requires callouts, block activation while provider is unavailable."
+          "Operator confirms all required policy limits and explicitly approves a code change to the master live gate.",
+          "Signer verifies expected wallet; private RPC, balance/reserve, kill switch and all readiness/armed tests pass.",
+          "Append-only risk policy and qualification gates pass; valid fresh quote, inspected allowlisted transaction, simulation and idempotency checks."
         ],
-        "met": "unknown"
+        "met": "no"
       },
       "test_criteria": {
         "kind": "recommended_not_verified",
         "items": [
-          "Verify rejection paths, bounded orders, authenticated stop, RPC failure, duplicate submission prevention and transaction reconciliation in dry-run before any live activation.",
-          "Verify unavailable callout state and prevent simulated callouts from entering live execution.",
-          "Verify dedicated-page navigation, scrolling, mode label, WHY explanation, replay and logs."
+          "Run pure gate failure suite and read-only qualification with recorded evidence; verify kill switch, duplicate blocking, stale quote/wallet/RPC failure, program rejection and policy limits.",
+          "Verify PAPER and ARMED never sign; live master lock blocks signAndSend. No tests or operator actions were executed during registry work."
         ],
-        "results": "unknown"
+        "results": "not_run"
       },
       "ui_route": {
-        "actual": null,
-        "status": "unknown",
+        "actual": "/experiments/live-brain",
+        "status": "implemented",
         "recommended": "/experiments/011",
-        "note": "Dedicated route intended in prior specification; exact deployed pathname unverified."
+        "note": "Source-defined slug route; deployed navigation not verified. Numeric recommended route is retained as historical proposal only."
       },
       "evidence_refs": [
         "E2",
         "E3",
-        "E1"
+        "E1",
+        "E4",
+        "E5"
       ]
     }
   ]
